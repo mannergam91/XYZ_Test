@@ -25,11 +25,14 @@ def test_xyz_check_create_user_1(browser):
     last_name = User1.Last_Name(browser)
     post_code = User1.Post_Code(browser)
     xyz_main_click = Click_button(browser)
+    #Тест_1:
     xyz_main_click.go_to_site()
     xyz_main_create = Create_User(browser)
     Create_User.Add_Customer(xyz_main_create, browser)
+    #Тест_2:
     xyz_main_click.click_button_Open_Account()
     Create_User.Open_Account(xyz_main_create, browser)
+    #Тест_3:
     xyz_main_click.click_button_Customers()
     xyz_main_input = Input(browser)
     xyz_main_input.Table_Customers_Serch_Customer().send_keys(first_name)
@@ -43,11 +46,14 @@ def test_xyz_check_create_user_1(browser):
 def test_xyz_check_create_user_2(browser):
     first_name = User1.First_Name(browser)
     xyz_main_click = Click_button(browser)
+    #Тест_1:
     xyz_main_click.go_to_site()
     xyz_main_create = Create_User(browser)
     Create_User.Add_Customer(xyz_main_create, browser)
+    #Тест_2:
     xyz_main_click.click_button_Open_Account()
     Create_User.Open_Account(xyz_main_create, browser)
+    #Тест_3:
     xyz_main_click.click_button_Customers()
     xyz_main_input = Input(browser)
     xyz_main_input.Table_Customers_Serch_Customer().send_keys(first_name)
@@ -66,6 +72,7 @@ def test_xyz_check_Customer_Login(browser):
         First_Name = User1.First_Name(browser)
         Last_Name = User1.Last_Name(browser)
         xyz_main_click = Click_button(browser)
+        #Тест_1:
         xyz_main_click.go_to_site()
         xyz_main_click.click_button_Customer_Login()
         Customer_Login(browser)
@@ -73,10 +80,12 @@ def test_xyz_check_Customer_Login(browser):
         actual_name = Account_Elements(browser).Get_Welcome_Name()
         expected_name = f'{First_Name} {Last_Name}'
         assert actual_name == expected_name  # Проверяет что на экране приветствия указано имя созданного пользователя
+        #Тест_2:
         actual_element_account = Account_Elements(browser).Get_Elements_list()
         assert actual_element_account[0] == id[i]
         assert actual_element_account[1] == '0'
         assert actual_element_account[2] == 'Rupee'
+        #Тест_3:
         xyz_main_click.click_button_Deposit()
         xyz_main_input = Input(browser)
         xyz_main_input.Money_amount().send_keys('1000')
